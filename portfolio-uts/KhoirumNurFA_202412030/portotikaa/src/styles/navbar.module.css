@@ -1,0 +1,106 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-height);
+  z-index: 50;
+  transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+  border-bottom: 1px solid transparent;
+}
+.scrolled {
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+.brandMark { width: 30px; height: 30px; align-self: center; transition: transform .5s ease; }
+.brand:hover .brandMark { transform: rotate(40deg); }
+.brandName {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--text-strong);
+}
+
+.right { display: flex; align-items: center; gap: 0.5rem; }
+
+.list { display: flex; list-style: none; gap: 0.25rem; }
+
+.link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.9rem;
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  transition: color .2s ease;
+}
+.link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(-50%) scale(0);
+  transition: transform .25s ease;
+}
+.link:hover { color: var(--text-strong); }
+.active { color: var(--text-strong); }
+.active::after { transform: translateX(-50%) scale(1); }
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.iconBtn:hover { border-color: var(--accent); color: var(--accent); }
+
+.menuBtn { display: none; }
+
+@media (max-width: 768px) {
+  .menuBtn { display: grid; }
+  .nav {
+    position: absolute;
+    top: var(--nav-height);
+    left: var(--gutter);
+    right: var(--gutter);
+    background: var(--surface-solid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+    box-shadow: 0 20px 40px -20px var(--shadow);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .navOpen { opacity: 1; transform: none; pointer-events: auto; }
+  .list { flex-direction: column; }
+  .link { padding: 0.8rem 1rem; }
+  .link::after { left: auto; right: 1rem; top: 50%; bottom: auto; transform: translateY(-50%) scale(0); }
+  .active::after { transform: translateY(-50%) scale(1); }
+}

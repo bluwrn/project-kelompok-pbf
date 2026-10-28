@@ -1,0 +1,193 @@
+/* ===== Tema Lily =====
+   Terang = blush & krem, tinta merah anggur
+   Gelap  = malam plum, kelopak pink yang berpendar */
+:root,
+:root[data-theme='light'] {
+  --bg: #fdf5f2;
+  --bg-2: #f9e9e7;
+  --surface: rgba(255, 251, 250, 0.9);
+  --surface-solid: #fffbfa;
+  --surface-2: #fbeeee;
+  --border: #f0d9da;
+  --border-strong: #e2bcc2;
+  --text-strong: #3a1424;
+  --text: #553140;
+  --text-muted: #7f5a67;
+  --text-faint: #a7848f;
+
+  --petal: #f2a7bb;
+  --petal-soft: #fbdbe3;
+  --rose: #c43d68;
+  --rose-deep: #8f2148;
+  --pollen: #c06a2b;
+  --leaf: #7f9a55;
+
+  --accent: #c43d68;
+  --accent-soft: rgba(196, 61, 104, 0.08);
+  --accent-border: rgba(196, 61, 104, 0.28);
+  --on-accent: #fff8f8;
+  --shadow: rgba(143, 33, 72, 0.16);
+  --header-bg: rgba(253, 245, 242, 0.8);
+  --backdrop-opacity: 0.16;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #1a0f15;
+  --bg-2: #22141b;
+  --surface: rgba(40, 24, 32, 0.92);
+  --surface-solid: #28181f;
+  --surface-2: #311d27;
+  --border: #44283a;
+  --border-strong: #5e3a4d;
+  --text-strong: #fcedf1;
+  --text: #e5ccd4;
+  --text-muted: #b893a1;
+  --text-faint: #8c6b78;
+
+  --petal: #f49ab4;
+  --petal-soft: #4a2536;
+  --rose: #f27aa0;
+  --rose-deep: #c9466f;
+  --pollen: #e9a066;
+  --leaf: #9bb873;
+
+  --accent: #f27aa0;
+  --accent-soft: rgba(242, 122, 160, 0.1);
+  --accent-border: rgba(242, 122, 160, 0.32);
+  --on-accent: #2a0f1b;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --header-bg: rgba(26, 15, 21, 0.78);
+  --backdrop-opacity: 0.09;
+  color-scheme: dark;
+}
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --gutter: 2rem;
+  --nav-height: 72px;
+  --radius: 22px;
+}
+
+@media (max-width: 640px) {
+  :root { --gutter: 1rem; --nav-height: 64px; }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+::selection { background: var(--petal); color: var(--text-strong); }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Label kecil di atas judul section */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 100% 0 100% 0;
+  background: var(--accent);
+  transform: rotate(-45deg);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--text-strong);
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.section-lede {
+  max-width: 560px;
+  color: var(--text-muted);
+  margin-top: 0.9rem;
+}
+
+/* Tombol */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn-primary {
+  background: var(--text-strong);
+  color: var(--bg);
+  box-shadow: 0 12px 28px -14px var(--shadow);
+}
+.btn-primary:hover { background: var(--accent); color: var(--on-accent); transform: translateY(-2px); }
+.btn-ghost {
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+  background: var(--surface);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Kartu — sengaja TANPA backdrop-filter (blur di atas latar bergerak = berat) */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* Transisi warna saat ganti tema */
+html.theme-switching,
+html.theme-switching * {
+  transition: background-color .4s ease, border-color .4s ease, color .4s ease !important;
+}
+
+/* Animasi muncul saat scroll */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }

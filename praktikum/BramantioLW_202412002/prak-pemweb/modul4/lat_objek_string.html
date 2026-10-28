@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Analisis Nama Lengkap</title>
+  </head>
+
+  <body>
+    <h2>Analisis Nama Lengkap</h2>
+
+    <input type="text" id="inputNama" placeholder="Masukkan nama lengkap" />
+
+    <button onclick="analisisNama()">Analisis</button>
+
+    <p id="hasilAnalisis"></p>
+
+    <script>
+      function analisisNama() {
+        var nama = document.getElementById("inputNama").value;
+
+        var hasil = "";
+
+        hasil += "Huruf kapital : <b>" + nama.toUpperCase() + "</b><br>";
+
+        hasil += "Jumlah karakter : <b>" + nama.length + "</b><br>";
+
+        hasil += "3 karakter pertama : <b>" + nama.substring(0, 3) + "</b><br>";
+
+        hasil += "Huruf kecil : <b>" + nama.toLowerCase() + "</b>";
+
+        document.getElementById("hasilAnalisis").innerHTML = hasil;
+      }
+    </script>
+  </body>
+</html>

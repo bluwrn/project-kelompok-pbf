@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Jam Digital Praktikum</title>
+
+    <style>
+      #jam {
+        font-size: 40px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body onload="jalankanJam()">
+    <h2>Jam Digital Praktikum JavaScript</h2>
+
+    <div id="jam"></div>
+
+    <script>
+      function updateJam() {
+        var sekarang = new Date();
+
+        document.getElementById("jam").innerHTML =
+          sekarang.toLocaleTimeString();
+      }
+
+      function jalankanJam() {
+        setInterval(updateJam, 1000);
+      }
+    </script>
+  </body>
+</html>

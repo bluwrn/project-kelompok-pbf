@@ -1,0 +1,64 @@
+/* Latar dibuat ringan:
+   - cahaya pakai radial-gradient (bukan filter: blur → mahal)
+   - bunga besar statis (tidak dianimasikan)
+   - hanya kelopak kecil yang bergerak, pakai transform saja */
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+  background:
+    radial-gradient(560px 520px at 100% 0%, color-mix(in srgb, var(--petal) 34%, transparent), transparent 70%),
+    radial-gradient(480px 460px at 0% 100%, color-mix(in srgb, var(--petal) 24%, transparent), transparent 70%);
+}
+
+.bloom {
+  position: absolute;
+  width: 600px;
+  height: auto;
+  opacity: var(--backdrop-opacity);
+  user-select: none;
+}
+.bloomTop {
+  top: -180px;
+  right: -200px;
+  transform: rotate(18deg);
+}
+.bloomBottom {
+  bottom: -240px;
+  left: -240px;
+  width: 520px;
+  transform: rotate(-30deg) scaleX(-1);
+}
+
+/* Kelopak jatuh */
+.petal {
+  position: absolute;
+  top: -40px;
+  width: 16px;
+  height: 12px;
+  border-radius: 80% 10% 80% 10%;
+  background: linear-gradient(135deg, var(--petal-soft), var(--petal));
+  opacity: 0.55;
+  will-change: transform;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes fall {
+  0%   { transform: translate3d(0, -5vh, 0) rotate(0deg) scale(var(--s)); }
+  50%  { transform: translate3d(50px, 50vh, 0) rotate(160deg) scale(var(--s)); }
+  100% { transform: translate3d(-30px, 110vh, 0) rotate(340deg) scale(var(--s)); }
+}
+
+/* Saat tab tidak aktif / pengguna diam, animasi dijeda (lihat Backdrop.jsx) */
+.paused .petal { animation-play-state: paused; }
+
+@media (max-width: 640px) {
+  .bloom { width: 380px; }
+  .bloomTop { top: -110px; right: -160px; }
+  .bloomBottom { width: 340px; bottom: -150px; left: -180px; }
+  .petal:nth-child(n + 7) { display: none; } /* lebih sedikit kelopak di HP */
+}

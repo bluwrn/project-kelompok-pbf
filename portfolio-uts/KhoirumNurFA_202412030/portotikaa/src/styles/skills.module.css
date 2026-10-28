@@ -1,0 +1,95 @@
+.skills { padding: 6rem 0; }
+
+.grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.column {
+  position: relative;
+  padding: 1.6rem 1.5rem 1.8rem;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.column:hover { border-color: var(--accent-border); transform: translateY(-3px); }
+
+/* Garis tipis atas, makin "mekar" dari kolom ke kolom */
+.column::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 1.5rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.column[data-stage='0']::before { width: 64px; }
+.column[data-stage='1']::before { width: 40px; opacity: 0.75; }
+.column[data-stage='2']::before { width: 20px; opacity: 0.5; }
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.groupIcon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+.note { font-size: 0.85rem; color: var(--text-faint); }
+
+.badges { list-style: none; display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.badge:hover { border-color: var(--accent-border); color: var(--text-strong); background: var(--accent-soft); }
+.badgeIcon { color: var(--accent); font-size: 0.95rem; flex: none; }
+
+/* Kolom "sedang dipelajari" diberi kesan kuncup: garis putus-putus */
+.column[data-stage='2'] .badge { border-style: dashed; background: transparent; }
+
+@media (max-width: 960px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  .skills { padding: 4rem 0; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .grid { margin-top: 2rem; gap: 0.9rem; }
+  .column { padding: 1.2rem 1.1rem 1.3rem; }
+  .column:hover { transform: none; }
+  .head { padding-bottom: 0.9rem; margin-bottom: 1rem; gap: 0.75rem; }
+  .groupIcon { width: 40px; height: 40px; font-size: 0.95rem; }
+  .title { font-size: 1.3rem; }
+  .badges { gap: 0.45rem; }
+  .badge { padding: 0.38rem 0.75rem; font-size: 0.84rem; }
+}

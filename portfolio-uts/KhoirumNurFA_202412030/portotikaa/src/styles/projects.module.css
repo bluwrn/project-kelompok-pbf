@@ -1,0 +1,208 @@
+.projects { padding: 6rem 0; }
+
+.featuredGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  contain: content;
+  cursor: pointer;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-border);
+  box-shadow: 0 24px 50px -26px var(--shadow);
+}
+
+.cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(circle at 50% 55%, var(--petal-soft), transparent 70%),
+    var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.coverImg { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.card:hover .coverImg { transform: scale(1.04); }
+.coverArt {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.coverLily { transition: transform .6s ease; }
+.card:hover .coverLily { transform: rotate(24deg) scale(1.06); }
+
+.index {
+  position: absolute;
+  top: 0.7rem;
+  left: 1rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+.hint {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--header-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.card:hover .hint, .card:focus-visible .hint { opacity: 1; }
+
+.body { padding: 1.4rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+.desc { color: var(--text-muted); font-size: 0.95rem; }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.4rem; }
+.tags li {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+}
+
+.links { display: flex; align-items: center; gap: 1.1rem; padding-top: 0.6rem; border-top: 1px solid var(--border); margin-top: 0.4rem; }
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.87rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding-top: 0.6rem;
+  transition: color .2s ease;
+}
+.links a:hover { color: var(--accent); }
+
+.subhead {
+  margin: 4rem 0 1.3rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.subhead span { color: var(--accent); font-size: 1.2rem; }
+
+.meta {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.8rem;
+  padding-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.meta span { display: inline-flex; align-items: center; gap: 0.25rem; }
+
+/* Header section + tombol "Semua repo" */
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.allRepos { flex: none; }
+
+.skeleton {
+  min-height: 190px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(100deg, var(--surface-2) 30%, var(--bg-2) 50%, var(--surface-2) 70%);
+  background-size: 300% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+@keyframes shimmer { to { background-position: -150% 0; } }
+
+/* Petunjuk geser — hanya tampil di HP */
+.swipeHint { display: none; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .featuredGrid { grid-template-columns: repeat(2, 1fr); }
+  .featuredGrid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .projects { padding: 4rem 0; }
+  .head { align-items: flex-start; }
+  .allRepos { padding: 0.6rem 1.1rem; font-size: 0.88rem; }
+
+  /* Featured: geser ke samping (swipe), kartu berikutnya sedikit mengintip */
+  .swipeHint {
+    display: block;
+    margin-top: 1.6rem;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+  .featuredGrid {
+    display: flex;
+    gap: 0.9rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0.8rem calc(var(--gutter) * -1) 0;
+    padding: 0 var(--gutter) 0.6rem;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .featuredGrid::-webkit-scrollbar { display: none; }
+  .featuredGrid > .card {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+  .featuredGrid > :last-child:nth-child(odd) { grid-column: auto; }
+  .hint { opacity: 1; }
+  .card:hover { transform: none; }
+
+  /* Other: daftar ringkas, tanpa animasi hover */
+  .otherGrid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .other .body { padding: 1.1rem 1.2rem 1.15rem; gap: 0.5rem; }
+  .other .title { font-size: 1.25rem; }
+  .other .desc { font-size: 0.9rem; }
+
+  .body { padding: 1.15rem 1.2rem 1.25rem; }
+  .title { font-size: 1.35rem; }
+  .subhead { margin-top: 3rem; font-size: 1.45rem; }
+  .links a { min-height: 40px; padding-top: 0.4rem; }
+}

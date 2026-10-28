@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Generator Nomor Acak</title>
+  </head>
+
+  <body>
+    <h2>Generator Nomor Acak</h2>
+
+    <p>Klik tombol untuk menghasilkan angka acak.</p>
+
+    <button onclick="generateRandom()">Generate</button>
+
+    <h3>
+      Hasil :
+      <span id="angkaAcak">?</span>
+    </h3>
+
+    <script>
+      function generateRandom() {
+        var angka = Math.floor(Math.random() * 100) + 1;
+
+        document.getElementById("angkaAcak").innerText = angka;
+      }
+    </script>
+  </body>
+</html>

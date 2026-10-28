@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile - PT Lecaks Jaya Abadi</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #0d6efd, #0a58ca);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .btn-custom {
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #198754;
+            color: white;
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">PT Maju Bersama</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="hero">
+        <h1>Selamat Datang di PT Maju Bersama</h1>
+        <p>Perusahaan Teknologi dan Solusi Digital Terpercaya</p>
+    </section>
+
+    <!-- Tabel Informasi Perusahaan -->
+    <section class="container mt-5" id="about">
+        <h2 class="text-center mb-4">Informasi Perusahaan</h2>
+
+        <table class="table table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <th>Nama Perusahaan</th>
+                    <td>PT Maju Bersama</td>
+                </tr>
+                <tr>
+                    <th>Tahun Berdiri</th>
+                    <td>2015</td>
+                </tr>
+                <tr>
+                    <th>Jumlah Karyawan</th>
+                    <td>250 Orang</td>
+                </tr>
+                <tr>
+                    <th>Lokasi Kantor</th>
+                    <td>Bontang, Kalimantan Timur</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Card Produk/Layanan -->
+    <section class="container mt-5" id="services">
+        <h2 class="text-center mb-4">Produk & Layanan</h2>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="https://via.placeholder.com/350x200"
+                         class="card-img-top"
+                         alt="Web Development">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">
+                            Pembuatan website profesional untuk perusahaan,
+                            sekolah, dan UMKM.
+                        </p>
+
+                        <a href="#" class="btn btn-primary btn-custom">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="https://via.placeholder.com/350x200"
+                         class="card-img-top"
+                         alt="Mobile App">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile Application</h5>
+                        <p class="card-text">
+                            Pengembangan aplikasi Android dan iOS yang modern
+                            dan responsif.
+                        </p>
+
+                        <a href="#" class="btn btn-primary btn-custom">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="https://via.placeholder.com/350x200"
+                         class="card-img-top"
+                         alt="Cloud Service">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud Service</h5>
+                        <p class="card-text">
+                            Solusi cloud computing yang aman dan efisien untuk
+                            kebutuhan bisnis.
+                        </p>
+
+                        <a href="#" class="btn btn-primary btn-custom">
+                            Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="container mt-5" id="contact">
+        <h2 class="text-center mb-4">Kontak</h2>
+
+        <div class="alert alert-info text-center">
+            Email: info@majubersama.com |
+            Telp: (0548) 123456
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 PT Maju Bersama. All Rights Reserved.</p>
+        <p>Instagram | Facebook | LinkedIn</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

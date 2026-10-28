@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Mahasiswa Baru</title>
+</head>
+<body style="background-color: #f4f7f6; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+
+    <!-- Wadah utama formulir agar terlihat rapi di tengah halaman -->
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        
+        <!-- Poin 5.a: Elemen multimedia (gambar logo kampus di atas formulir) -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="logo kampus.png" alt="Logo Kampus" style="max-width: 150px; height: auto;">
+        </div>
+
+        <!-- Poin 1.c: Heading utama h1 -->
+        <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Formulir Pendaftaran Mahasiswa Baru STITEK</h1>
+
+        <form action="#" method="POST">
+
+            <!-- Poin 3.b: Menggunakan fieldset dan legend untuk mengelompokkan bagian form -->
+            <!-- BAGIAN 1: DATA PRIBADI -->
+            <fieldset style="border: 2px solid #cbd5e1; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
+                <legend style="font-weight: bold; color: #1e293b; padding: 0 10px;">Data Pribadi</legend>
+
+                <!-- Input Teks: Nama Lengkap (Wajib diisi, menggunakan label & placeholder) -->
+                <div style="margin-bottom: 15px;">
+                    <label for="nama" style="display: block; font-weight: bold; margin-bottom: 5px;">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama_lengkap" placeholder="Masukkan nama lengkap Anda" required style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <!-- Input Teks: Email (Wajib diisi, bertipe email, menggunakan label & placeholder) -->
+                <div style="margin-bottom: 15px;">
+                    <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <!-- Radio Button: Jenis Kelamin (Wajib dipilih) -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Jenis Kelamin:</label>
+                    <input type="radio" id="pria" name="jenis_kelamin" value="Pria" required>
+                    <label id="label_pria" for="pria" style="margin-right: 15px;">Pria</label>
+                    
+                    <input type="radio" id="wanita" name="jenis_kelamin" value="Wanita" required>
+                    <label id="label_wanita" for="wanita">Wanita</label>
+                </div>
+            </fieldset>
+
+
+            <!-- BAGIAN 2: MINAT & PILIHAN -->
+            <fieldset style="border: 2px solid #cbd5e1; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
+                <legend style="font-weight: bold; color: #1e293b; padding: 0 10px;">Minat & Pilihan</legend>
+
+                <!-- Checkbox: Pilihan Hobi (Minimal 2 pilihan dicantumkan di kode) -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Hobi (Pilih yang sesuai):</label>
+                    
+                    <div style="margin-bottom: 5px;">
+                        <input type="checkbox" id="hobi1" name="hobi[]" value="Membaca">
+                        <label id="label_hobi1" for="hobi1">Membaca</label>
+                    </div>
+                    
+                    <div style="margin-bottom: 5px;">
+                        <input type="checkbox" id="hobi2" name="hobi[]" value="Olahraga">
+                        <label id="label_hobi2" for="hobi2">Olahraga</label>
+                    </div>
+                    
+                    <div style="margin-bottom: 5px;">
+                        <input type="checkbox" id="hobi3" name="hobi[]" value="Musik">
+                        <label id="label_hobi3" for="hobi3">Musik</label>
+                    </div>
+                </div>
+
+                <!-- Dropdown (Select): Pilihan Jurusan (Minimal 3 pilihan) -->
+                <div style="margin-bottom: 15px;">
+                    <label for="jurusan" style="display: block; font-weight: bold; margin-bottom: 5px;">Pilihan Jurusan:</label>
+                    <select id="jurusan" name="jurusan" required style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="">-- Pilih Jurusan --</option>
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Teknik Elektro">Teknik Elektro</option>
+                        <option value="Teknik Industri">Teknik Industri</option>
+                    </select>
+                </div>
+            </fieldset>
+
+
+            <!-- BAGIAN 3: ALAMAT & KONFIRMASI -->
+            <fieldset style="border: 2px solid #cbd5e1; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
+                <legend style="font-weight: bold; color: #1e293b; padding: 0 10px;">Alamat</legend>
+
+                <!-- Textarea: Kolom Alamat Lengkap (Opsional, tidak pakai required) -->
+                <div style="margin-bottom: 10px;">
+                    <label for="alamat" style="display: block; font-weight: bold; margin-bottom: 5px;">Alamat Lengkap (Opsional):</label>
+                    <textarea id="alamat" name="alamat" rows="4" placeholder="Masukkan alamat rumah lengkap Anda..." style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Tombol Submit untuk mengirim data formulir -->
+            <div style="text-align: center; margin-top: 25px;">
+                <input type="submit" value="Kirim Pendaftaran" style="background-color: #4CAF50; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%;">
+            </div>
+
+        </form>
+
+        <!-- Poin 5.b: Link ke halaman informasi kampus di bawah formulir -->
+        <div style="text-align: center; margin-top: 25px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+            <a href="https://stitek.ac.id/" target="_blank" style="color: #0284c7; text-decoration: none; font-size: 14px; font-weight: bold;">&larr; Kunjungi Halaman Informasi Kampus</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

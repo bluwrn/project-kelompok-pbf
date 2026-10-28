@@ -1,0 +1,86 @@
+.gallery {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+}
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  user-select: none;
+}
+
+/* Kartu preview GitHub punya rasio 2:1 → tampilkan utuh */
+.githubCard { aspect-ratio: 2 / 1; background: #fff; }
+.githubCard .slide { object-fit: contain; object-position: center; }
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  color: var(--text-strong);
+  box-shadow: 0 8px 20px -10px var(--shadow);
+  cursor: pointer;
+  opacity: 0.92;
+  transition: color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.nav:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+.prev { left: 0.8rem; }
+.next { right: 0.8rem; }
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: var(--header-bg);
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+.dotActive { width: 20px; background: var(--accent); }
+
+.counter {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.9rem;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--header-bg);
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .nav { width: 34px; height: 34px; }
+  .prev { left: 0.5rem; }
+  .next { right: 0.5rem; }
+}

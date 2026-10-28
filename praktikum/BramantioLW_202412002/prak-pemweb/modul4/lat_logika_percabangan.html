@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Kalkulator Diskon Belanja</title>
+  </head>
+
+  <body>
+    <h2>Kalkulator Diskon Belanja</h2>
+
+    <input
+      type="number"
+      id="totalBelanja"
+      placeholder="Masukkan total belanja"
+    />
+
+    <button onclick="cekDiskon()">Cek Diskon</button>
+
+    <h3 id="hasil"></h3>
+
+    <script>
+      function cekDiskon() {
+        var total = parseFloat(document.getElementById("totalBelanja").value);
+
+        var pesan = "";
+
+        if (isNaN(total)) {
+          pesan = "Masukkan angka yang valid.";
+        } else if (total >= 250000) {
+          var diskon = total * 0.15;
+          var totalBayar = total - diskon;
+
+          pesan =
+            "Anda mendapatkan diskon 15% sebesar Rp " +
+            diskon +
+            ". Total bayar: Rp " +
+            totalBayar;
+        } else if (total >= 100000) {
+          var diskon = total * 0.1;
+          var totalBayar = total - diskon;
+
+          pesan =
+            "Anda mendapatkan diskon 10% sebesar Rp " +
+            diskon +
+            ". Total bayar: Rp " +
+            totalBayar;
+        } else {
+          pesan = "Tidak mendapatkan diskon. Total bayar: Rp " + total;
+        }
+
+        document.getElementById("hasil").innerHTML = pesan;
+      }
+    </script>
+  </body>
+</html>

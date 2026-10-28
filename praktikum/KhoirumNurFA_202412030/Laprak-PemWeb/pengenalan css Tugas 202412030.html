@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Praktikum - CSS Grid & Responsive Design</title>
+    <style>
+        /* ==========================================================================
+           4. TAMBAHAN (Aplikasi Global)
+           ========================================================================== */
+        /* Memastikan seluruh elemen menggunakan box-sizing: border-box */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ==========================================================================
+           1. TAMPILAN UMUM
+           ========================================================================== */
+        body {
+            /* Background halaman berwarna biru muda (#add8e6) */
+            background-color: #add8e6;
+            /* Menggunakan font Arial atau sans-serif untuk seluruh halaman */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Judul utama (<h1>) berwarna putih, ukuran besar (~40px) */
+        h1 {
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraf (<p>) di bawah judul */
+        p {
+            /* Background abu-abu muda (#d3d3d3) & teks berwarna hitam */
+            background-color: #d3d3d3;
+            color: #000000;
+            /* Padding yang cukup agar nyaman dibaca */
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            max-width: 800px;
+            text-align: justify;
+            /* Tambahan: border-radius agar sudut membulat */
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           2. LAYOUT KOTAK (BOX) - DESKTOP (DEFAULT)
+           ========================================================================== */
+        /* Container utama dibatasi maksimal lebar 800px dan diposisikan di tengah */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            
+            /* Menggunakan CSS Grid dengan 3 kolom sama besar & jarak 20px */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Karakteristik umum setiap kotak (div) */
+        .box1, .box2, .box3 {
+            /* Border hitam tebal 2px, padding 10px, dan tinggi 15px */
+            border: 2px solid #000000;
+            padding: 10px;
+            height: 150px;
+            
+            /* Tambahan: border-radius agar sudut membulat */
+            border-radius: 8px;
+            
+            /* Penyelarasan teks di dalam kotak agar rapi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Warna latar belakang spesifik masing-masing kotak */
+        .box1 {
+            background-color: #ff9999; /* Merah muda */
+        }
+
+        .box2 {
+            background-color: #99ff99; /* Hijau muda */
+        }
+
+        .box3 {
+            background-color: #9999ff; /* Biru muda */
+        }
+
+        /* ==========================================================================
+           3. RESPONSIVE DESIGN (MEDIA QUERIES)
+           ========================================================================== */
+        
+        /* a. Ketika lebar layar kurang dari atau sama dengan 768px (Tablet) */
+        @media only screen and (max-width: 768px) {
+            .container {
+                /* Container berubah menjadi 2 kolom */
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* b & c. Ketika lebar layar kurang dari atau sama dengan 480px (Smartphone) */
+        @media only screen and (max-width: 480px) {
+            /* Ukuran font judul diperkecil menjadi 28px */
+            h1 {
+                font-size: 28px;
+            }
+
+            /* Padding paragraf dikurangi agar proporsional */
+            p {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            /* Container berubah menjadi 1 kolom */
+            .container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            /* Tinggi kotak menjadi 120px */
+            .box1, .box2, .box3 {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Praktikum CSS</h1>
+
+    <p>
+        <p>
+    Halaman web sederhana ini dibuat untuk menggambarkan momen seru saat Tika pergi kulineran ke Mie Gacoan. 
+    Di dalamnya menerapkan konsep tata letak yang rapi layaknya antrean Gacoan, pilihan menu mi pedas yang dinamis, 
+    serta penyesuaian level pedas dan porsi dimsum yang pas di lambung, sehingga tetap nyaman dinikmati di perangkat mana pun 
+    (Desktop, Tablet, maupun Smartphone).
+</p>
+    </p>
+
+    <div class="container">
+        <div class="box1">Kotak 1</div>
+        <div class="box2">Kotak 2</div>
+        <div class="box3">Kotak 3</div>
+    </div>
+
+</body>
+</html>

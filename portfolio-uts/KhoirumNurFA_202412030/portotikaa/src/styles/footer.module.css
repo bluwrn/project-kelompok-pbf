@@ -1,0 +1,39 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 1.8rem 0;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+}
+
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.email:hover { color: var(--accent); }
+.email svg { color: var(--accent); }
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Di HP: ditumpuk & rata tengah */
+@media (max-width: 640px) {
+  .inner { flex-direction: column; text-align: center; gap: 0.5rem; }
+  .email { order: -1; font-size: 0.92rem; }
+}

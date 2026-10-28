@@ -1,0 +1,107 @@
+.about { padding: 6rem 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.intro {
+  margin-top: 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.8rem;
+}
+
+/* Foto polaroid kecil, sedikit miring */
+.polaroid {
+  flex: none;
+  width: 150px;
+  padding: 8px 8px 0;
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 16px 30px -18px var(--shadow);
+  transform: rotate(-3deg);
+  transition: transform .3s ease;
+}
+.polaroid:hover { transform: rotate(0deg) translateY(-3px); }
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  image-rendering: pixelated;      /* piksel tetap tajam saat diperbesar */
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+.polaroid figcaption {
+  padding: 0.35rem 0 0.5rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.text { display: grid; gap: 1rem; color: var(--text-muted); font-size: 1.05rem; }
+.text p:first-child::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding: 0.3rem 0.5rem 0 0;
+  color: var(--accent);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--petal), transparent);
+}
+.cardLily {
+  position: absolute;
+  right: -60px;
+  bottom: -70px;
+  width: 210px;
+  height: auto;
+  opacity: 0.18;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 1.2rem;
+}
+.facts { display: grid; gap: 1rem; }
+.fact { display: grid; gap: 0.1rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--border); }
+.fact:last-child { border-bottom: 0; padding-bottom: 0; }
+.fact dt { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+.fact dd { color: var(--text-strong); }
+
+@media (max-width: 860px) {
+  .about { padding: 4rem 0; }
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 640px) {
+  .text { font-size: 1rem; }
+  .card { padding: 1.5rem 1.3rem; }
+  .cardTitle { font-size: 1.4rem; }
+}
+
+@media (max-width: 640px) {
+  .intro { flex-direction: column; gap: 1.4rem; margin-top: 1.4rem; }
+  .polaroid { width: 128px; }
+}

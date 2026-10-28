@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechVision Company Profile</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .hero {
+        background: #0d6efd;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+      }
+
+      .btn-custom:hover {
+        background-color: #0b5ed7;
+        color: white;
+      }
+
+      footer {
+        background: #212529;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"> TechVision </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+
+    <section class="hero">
+      <div class="container">
+        <h1>TechVision Indonesia</h1>
+
+        <p>Solusi Teknologi Modern untuk Bisnis Masa Depan</p>
+      </div>
+    </section>
+
+    <!-- About -->
+
+    <section id="about" class="container mt-5">
+      <h2 class="mb-4">Informasi Perusahaan</h2>
+
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <tr>
+            <th>Nama Perusahaan</th>
+            <td>PT TechVision Indonesia</td>
+          </tr>
+
+          <tr>
+            <th>Tahun Berdiri</th>
+            <td>2018</td>
+          </tr>
+
+          <tr>
+            <th>Jumlah Karyawan</th>
+            <td>150 Orang</td>
+          </tr>
+
+          <tr>
+            <th>Lokasi Kantor</th>
+            <td>Jakarta, Indonesia</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Services -->
+
+    <section id="services" class="container mt-5">
+      <h2 class="mb-4 text-center">Produk dan Layanan</h2>
+
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              src="https://picsum.photos/400/250?1"
+              class="card-img-top"
+              alt="Web Development"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Web Development</h5>
+
+              <p class="card-text">
+                Pembuatan website modern, responsif, dan profesional.
+              </p>
+
+              <a href="#" class="btn btn-primary btn-custom"> Selengkapnya </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              src="https://picsum.photos/400/250?2"
+              class="card-img-top"
+              alt="Mobile App"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Mobile Application</h5>
+
+              <p class="card-text">
+                Pengembangan aplikasi Android dan iOS sesuai kebutuhan bisnis.
+              </p>
+
+              <a href="#" class="btn btn-success btn-custom"> Selengkapnya </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img
+              src="https://picsum.photos/400/250?3"
+              class="card-img-top"
+              alt="Cloud Service"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Cloud Service</h5>
+
+              <p class="card-text">
+                Solusi penyimpanan dan infrastruktur cloud yang aman.
+              </p>
+
+              <a href="#" class="btn btn-danger btn-custom"> Selengkapnya </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+
+    <section id="contact" class="container mt-5 mb-5">
+      <h2>Kontak</h2>
+
+      <p>Email : info@techvision.com</p>
+
+      <p>Telepon : +62 812 3456 7890</p>
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+      <p>© 2026 PT TechVision Indonesia. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

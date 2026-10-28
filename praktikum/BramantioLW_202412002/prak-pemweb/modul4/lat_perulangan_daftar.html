@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Daftar Teman Kelas</title>
+  </head>
+
+  <body>
+    <h2>Daftar Teman Kelas</h2>
+
+    <ul id="daftar-teman"></ul>
+
+    <script>
+      var teman = ["Andi", "Budi", "Citra", "Dewi", "Farhan"];
+
+      var daftarElement = document.getElementById("daftar-teman");
+
+      for (let i = 0; i < teman.length; i++) {
+        daftarElement.innerHTML += "<li>" + teman[i] + "</li>";
+      }
+    </script>
+  </body>
+</html>

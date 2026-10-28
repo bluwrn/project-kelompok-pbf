@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Latihan Perulangan</title>
+  </head>
+
+  <body>
+    <h2>Daftar Mata Kuliah</h2>
+
+    <ul id="daftar-matkul"></ul>
+
+    <script>
+      var matkul = [
+        "Pemrograman Web",
+        "Struktur Data",
+        "Basis Data",
+        "Jaringan Komputer",
+      ];
+
+      var daftarElement = document.getElementById("daftar-matkul");
+
+      for (let i = 0; i < matkul.length; i++) {
+        daftarElement.innerHTML += "<li>" + matkul[i] + "</li>";
+      }
+    </script>
+  </body>
+</html>

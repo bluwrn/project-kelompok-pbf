@@ -1,0 +1,4 @@
+class Dosen:
+    def __init__(self, nama, nidn):
+        self.nama = nama
+        self.nidn = nidn

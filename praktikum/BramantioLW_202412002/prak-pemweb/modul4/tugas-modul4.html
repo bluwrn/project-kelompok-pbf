@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Toko Elektronik Sederhana</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+      }
+
+      button {
+        padding: 8px 12px;
+        margin: 3px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+      }
+
+      ul li:hover {
+        background: #f0f0f0;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      #output {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f7f7f7;
+      }
+
+      #jam {
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Toko Elektronik Sederhana</h1>
+
+    <p>
+      Waktu Transaksi :
+      <span id="jam"></span>
+    </p>
+
+    <div class="container">
+      <div class="card">
+        <img id="gambarProduk" />
+
+        <br /><br />
+
+        <button onclick="gantiGambar(-1)">Previous</button>
+
+        <button onclick="gantiGambar(1)">Next</button>
+
+        <h2 id="namaProduk"></h2>
+
+        <h3 id="hargaProduk"></h3>
+      </div>
+
+      <div class="card">
+        <h3>Daftar Produk</h3>
+
+        <ul id="daftarProduk"></ul>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Form Pemesanan</h2>
+
+    <input type="text" id="namaPemesan" placeholder="Nama Pemesan" />
+
+    <input type="number" id="jumlahPesan" placeholder="Jumlah Pesan" />
+
+    <input type="text" id="kodePromo" placeholder="Kode Promo" />
+
+    <button onclick="pesanProduk()">Pesan Sekarang</button>
+
+    <div id="output"></div>
+
+    <script>
+      var produk = [
+        {
+          nama: "Laptop ASUS Vivobook",
+          harga: 8500000,
+          gambar: [
+            "https://placehold.co/600x350/3498db/ffffff?text=Laptop+1",
+            "https://placehold.co/600x350/2980b9/ffffff?text=Laptop+2",
+            "https://placehold.co/600x350/1f6391/ffffff?text=Laptop+3",
+          ],
+        },
+
+        {
+          nama: "Monitor LG 24 Inch",
+          harga: 1750000,
+          gambar: [
+            "https://placehold.co/600x350/e74c3c/ffffff?text=Monitor+1",
+            "https://placehold.co/600x350/c0392b/ffffff?text=Monitor+2",
+            "https://placehold.co/600x350/a93226/ffffff?text=Monitor+3",
+          ],
+        },
+
+        {
+          nama: "Mechanical Keyboard",
+          harga: 650000,
+          gambar: [
+            "https://placehold.co/600x350/2ecc71/ffffff?text=Keyboard+1",
+            "https://placehold.co/600x350/27ae60/ffffff?text=Keyboard+2",
+            "https://placehold.co/600x350/1e8449/ffffff?text=Keyboard+3",
+          ],
+        },
+      ];
+
+      var produkAktif = 0;
+      var gambarAktif = 0;
+
+      function tampilkanProduk() {
+        document.getElementById("namaProduk").innerHTML =
+          produk[produkAktif].nama;
+
+        document.getElementById("hargaProduk").innerHTML =
+          "Rp " + produk[produkAktif].harga.toLocaleString();
+
+        document.getElementById("gambarProduk").src =
+          produk[produkAktif].gambar[gambarAktif];
+      }
+
+      function gantiGambar(arah) {
+        gambarAktif += arah;
+
+        if (gambarAktif >= produk[produkAktif].gambar.length) {
+          gambarAktif = 0;
+        }
+
+        if (gambarAktif < 0) {
+          gambarAktif = produk[produkAktif].gambar.length - 1;
+        }
+
+        tampilkanProduk();
+      }
+
+      function buatDaftarProduk() {
+        var daftar = document.getElementById("daftarProduk");
+
+        for (let i = 0; i < produk.length; i++) {
+          daftar.innerHTML +=
+            "<li onclick='pilihProduk(" + i + ")'>" + produk[i].nama + "</li>";
+        }
+      }
+
+      function pilihProduk(index) {
+        produkAktif = index;
+        gambarAktif = 0;
+
+        tampilkanProduk();
+      }
+
+      function pesanProduk() {
+        var nama = document.getElementById("namaPemesan").value;
+
+        var jumlah = parseInt(document.getElementById("jumlahPesan").value);
+
+        var promo = document.getElementById("kodePromo").value.toUpperCase();
+
+        if (nama == "") {
+          alert("Nama pemesan wajib diisi");
+          return;
+        }
+
+        if (isNaN(jumlah) || jumlah <= 0) {
+          alert("Jumlah harus lebih dari 0");
+          return;
+        }
+
+        var subtotal = produk[produkAktif].harga * jumlah;
+
+        var potongan = 0;
+
+        if (promo == "DISKON10") {
+          potongan = subtotal * 0.1;
+        }
+
+        var total = subtotal - potongan;
+
+        var orderId = "INV-" + (Math.floor(Math.random() * 90000) + 10000);
+
+        document.getElementById("output").innerHTML =
+          "<h3>Struk Pemesanan</h3>" +
+          "<p><b>Order ID:</b> " +
+          orderId +
+          "</p>" +
+          "<p><b>Nama:</b> " +
+          nama +
+          "</p>" +
+          "<p><b>Produk:</b> " +
+          produk[produkAktif].nama +
+          "</p>" +
+          "<p><b>Jumlah:</b> " +
+          jumlah +
+          "</p>" +
+          "<p><b>Subtotal:</b> Rp " +
+          subtotal.toLocaleString() +
+          "</p>" +
+          "<p><b>Potongan:</b> Rp " +
+          potongan.toLocaleString() +
+          "</p>" +
+          "<p><b>Total Akhir:</b> Rp " +
+          total.toLocaleString() +
+          "</p>";
+      }
+
+      function updateJam() {
+        document.getElementById("jam").innerHTML = new Date().toLocaleString();
+      }
+
+      setInterval(updateJam, 1000);
+
+      updateJam();
+
+      buatDaftarProduk();
+
+      tampilkanProduk();
+    </script>
+  </body>
+</html>

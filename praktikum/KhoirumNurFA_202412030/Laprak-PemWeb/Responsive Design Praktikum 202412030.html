@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Responsif Grid dan Tipografi</title>
+    <style>
+        /* ==========================================================================
+           1. GAYA UNTUK LAYAR DESKTOP (DEFAULT)
+           ========================================================================== */
+        body {
+            /* Latar belakang berwarna biru untuk desktop */
+            background-color: #3498db; 
+            color: #333333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* Efek transisi halus saat warna berubah */
+        }
+
+        /* Ukuran font dinamis menggunakan satuan viewport width (vw) kombinasi dengan calc() */
+        /* Artinya teks akan otomatis membesar secara halus mengikuti kelebaran layar komputer */
+        .judul-responsif {
+            font-size: calc(24px + 2vw); 
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        /* Grid Container: Default 3 Kolom untuk Desktop */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom sama rata */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ==========================================================================
+           2. MEDIA QUERY UNTUK SMARTPHONE (MAKSIMAL 600px)
+           ========================================================================== */
+        @media only screen and (max-width: 600px) {
+            body {
+                /* Latar belakang berubah menjadi merah untuk smartphone */
+                background-color: #e74c3c; 
+                padding: 15px;
+            }
+
+            /* Grid berubah menjadi 1 kolom saja pada layar kecil */
+            .grid-container {
+                grid-template-columns: 1fr; 
+            }
+
+            /* Ukuran teks alternatif khusus di smartphone jika dirasa terlalu besar */
+            .judul-responsif {
+                font-size: 28px; 
+            }
+            
+            .grid-item {
+                padding: 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="judul-responsif">Halaman Grid Responsif</h1>
+
+    <div class="grid-container">
+        <div class="grid-item">Kotak Konten 1</div>
+        <div class="grid-item">Kotak Konten 2</div>
+        <div class="grid-item">Kotak Konten 3</div>
+    </div>
+
+</body>
+</html>
